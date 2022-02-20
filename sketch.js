@@ -2,7 +2,7 @@ var path,boy,cash,diamonds,jewelry,sword;
 var pathImg,boyImg,cashImg,diamondsImg,jewelryImg,swordImg;
 var treasureCollection = 0;
 var cashG,diamondsG,jewelryG,swordGroup;
-
+var Logo,LogoImg
 //Game States
 var PLAY=1;
 var END=0;
@@ -16,6 +16,7 @@ function preload(){
   jewelryImg = loadImage("jwell.png");
   swordImg = loadImage("sword.png");
   endImg =loadAnimation("gameOver.png");
+  LogoImg = loadImage("game-logo.png");
 }
 
 function setup(){
@@ -25,6 +26,9 @@ function setup(){
 path=createSprite(200,200);
 path.addImage(pathImg);
 path.velocityY = 4;
+Logo = createSprite(50,50)
+Logo.addImage(LogoImg)
+Logo.scale = 0.1
 
 
 //creating boy running
@@ -41,7 +45,6 @@ swordGroup=new Group();
 }
 
 function draw() {
-
   if(gameState===PLAY){
   background(0);
   boy.x = World.mouseX;
@@ -83,7 +86,7 @@ function draw() {
         diamondsG.destroyEach();
         jewelryG.destroyEach();
         swordGroup.destroyEach();
-        
+
         cashG.setVelocityYEach(0);
         diamondsG.setVelocityYEach(0);
         jewelryG.setVelocityYEach(0);
